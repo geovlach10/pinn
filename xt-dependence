@@ -51,7 +51,7 @@ def compute_loss(net, x, t):
 
 def pinn_training(time_point: int):
 
-    #net = Net1D(2, 4, 20, 1)
+    #net = Net2D(2, 4, 20, 1)
     #optimizer = torch.optim.Adam(net.parameters(), lr=0.01)
 
     training_steps = [0, 5000, 10000, 30000]
@@ -59,7 +59,7 @@ def pinn_training(time_point: int):
 
     for steps in training_steps:
         # Re-initialize network and optimizer for each set of training steps
-        net = Net1D(2, 2, 30, 1)
+        net = Net2D(2, 2, 30, 1)
         optimizer = torch.optim.Adam(net.parameters(), lr=0.01)
         print(f"Training for {steps} steps...")
         for epoch in range(steps):
