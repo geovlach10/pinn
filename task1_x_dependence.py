@@ -45,9 +45,12 @@ def compute_loss(net, x):
 
     return loss
 
+# Instantiate the Net1D class and the optimizer
 net = Net1D(1, 40, 1)
 optimizer = torch.optim.Adam(net.parameters(), lr=0.01)
 
+
+# Training
 training_steps = [ 0, 1000, 2000, 8000]
 solutions = []
 
@@ -70,8 +73,10 @@ for steps in training_steps:
     x = torch.linspace(0, 1, 100).reshape(-1, 1) # Reshape x to be (100, 1)
     solutions.append(net(x).detach().numpy())
 
+# Plot the solution for each step in training_steps list
 for i, steps in enumerate(training_steps):
     plt.plot(x.numpy(), solutions[i], label=f'Steps: {steps}')
+    
 plt.legend()
 plt.title("1D - steady state")
 plt.xlabel("x")
