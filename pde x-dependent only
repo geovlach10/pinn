@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.autograd
 import numpy as np
 import matplotlib.pyplot as plt
+from common import Net1D
 
 def compute_loss(net, x):
     x.requires_grad = True
